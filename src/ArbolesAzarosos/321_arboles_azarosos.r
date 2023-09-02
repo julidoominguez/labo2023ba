@@ -19,14 +19,14 @@ PARAM$semilla <- 100019
 # parameetros rpart
 PARAM$rpart_param <- list(
   "cp" = -1,
-  "minsplit" = 100,
-  "minbucket" = 5,
+  "minsplit" = 250,
+  "minbucket" = 100,
   "maxdepth" = 14
 )
 
 # parametros  arbol
 # entreno cada arbol con solo 50% de las variables variables
-PARAM$feature_fraction <- 0.5
+PARAM$feature_fraction <- 0.9
 # voy a generar 500 arboles, a mas arboles mas tiempo de proceso y MEJOR MODELO
 #  pero ganancias marginales
 PARAM$num_trees_max <- 500
@@ -43,8 +43,8 @@ dataset <- fread("./datasets/dataset_pequeno.csv")
 
 # creo la carpeta donde va el experimento
 dir.create("./exp/", showWarnings = FALSE)
-carpeta_experimento <- paste0("./exp/KA", PARAM$experimento, "/")
-dir.create(paste0("./exp/KA", PARAM$experimento, "/"),
+carpeta_experimento <- paste0("./exp/KII", PARAM$experimento, "/")
+dir.create(paste0("./exp/KII", PARAM$experimento, "/"),
   showWarnings = FALSE
 )
 
@@ -106,7 +106,7 @@ for (arbolito in 1:PARAM$num_trees_max) {
     )) # genero la salida
 
     nom_arch <- paste0(
-      "KA", PARAM$experimento, "_",
+      "KII", PARAM$experimento, "_",
       sprintf("%.3d", arbolito), # para que tenga ceros adelante
       ".csv"
     )
