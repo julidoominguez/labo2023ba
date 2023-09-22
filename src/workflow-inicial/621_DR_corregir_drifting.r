@@ -11,9 +11,9 @@ require("yaml")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "DR62103"
+PARAM$experimento <- "DR62104"
 
-PARAM$exp_input <- "CA61103"
+PARAM$exp_input <- "CA61104"
 
 PARAM$variables_intrames <- TRUE # atencion esto esta en TRUE
 
@@ -238,15 +238,15 @@ drift_rank_cero_fijo <- function(campos_drift) {
 #------------------------------------------------------------------------------
 
 drift_estandarizar <- function(campos_drift) {
-for (campo in campos_drift)
-{
-cat(campo, " ")
-dataset[, paste0(campo, "_normal") :=
-(get(campo) - mean(get(campo), na.rm=TRUE)) / sd(get(campo), na.rm=TRUE),
-by = foto_mes]
+  for (campo in campos_drift)
+  {
+    cat(campo, " ")
+    dataset[, paste0(campo, "_normal") := 
+      (get(campo) -mean(get(campo), na.rm=TRUE)) / sd(get(campo), na.rm=TRUE),
+      by = foto_mes]
 
-dataset[, (campo) := NULL]
-}
+    dataset[, (campo) := NULL]
+  }
 }
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
