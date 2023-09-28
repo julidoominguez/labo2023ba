@@ -18,8 +18,8 @@ PARAM$exp_input <- "CA611010"
 PARAM$variables_intrames <- TRUE # atencion esto esta en TRUE
 
 # valores posibles
-#  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar"
-PARAM$metodo <- "rank_cero_fijo"
+#  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar", "estandarizar_cero_fijo"
+PARAM$metodo <- "estandarizar_cero_fijo"
 
 PARAM$home <- "~/buckets/b1/"
 # FIN Parametros del script
@@ -288,7 +288,13 @@ switch(PARAM$metodo,
   "rank_simple"    = drift_rank_simple(campos_monetarios),
   "rank_cero_fijo" = drift_rank_cero_fijo(campos_monetarios),
   "deflacion"      = drift_deflacion(campos_monetarios),
-  "estandarizar"   = drift_estandarizar(campos_monetarios)
+  "estandarizar"   = drift_estandarizar(campos_monetarios),
+  "estandarizar_cero_fijo"  =  {
+    # Primero, aplicar drift_estandarizar
+    drift_estandarizar(campos_monetarios)
+    # Luego, aplicar drift_rank_cero_fijo
+    drift_rank_cero_fijo(campos_monetarios) 
+  }
 )
 
 
