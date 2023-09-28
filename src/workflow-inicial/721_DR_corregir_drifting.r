@@ -290,7 +290,7 @@ switch(PARAM$metodo,
   "deflacion"      = drift_deflacion(campos_monetarios),
   "estandarizar"   = drift_estandarizar(campos_monetarios),
   "estandarizar_cero_fijo"  =  {
-    # Primero, aplicar drift_estandarizar
+    # Primero, aplicar drift_estandarizar, claro
     drift_estandarizar(campos_monetarios)
     # Luego, aplicar drift_rank_cero_fijo
     drift_rank_cero_fijo(campos_monetarios) 
