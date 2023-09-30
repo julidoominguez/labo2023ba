@@ -11,15 +11,15 @@ require("yaml")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "DR621010"
+PARAM$experimento <- "DR621011"
 
-PARAM$exp_input <- "CA611010"
+PARAM$exp_input <- "CA611011"
 
 PARAM$variables_intrames <- TRUE # atencion esto esta en TRUE
 
 # valores posibles
-#  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar", "estandarizar_cero_fijo"
-PARAM$metodo <- "estandarizar_cero_fijo"
+#  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar", "estandarizar_y_rank"
+PARAM$metodo <- "estandarizar_y_rank"
 
 PARAM$home <- "~/buckets/b1/"
 # FIN Parametros del script
@@ -284,16 +284,14 @@ campos_monetarios <- campos_monetarios[campos_monetarios %like%
 # aqui aplico un metodo para atacar el data drifting
 # hay que probar experimentalmente cual funciona mejor
 switch(PARAM$metodo,
-  "ninguno"        = cat("No hay correccion del data drifting"),
+  "ninguno"        = cat("No hay corrección del data drifting"),
   "rank_simple"    = drift_rank_simple(campos_monetarios),
   "rank_cero_fijo" = drift_rank_cero_fijo(campos_monetarios),
   "deflacion"      = drift_deflacion(campos_monetarios),
   "estandarizar"   = drift_estandarizar(campos_monetarios),
-  "estandarizar_cero_fijo"  =  {
-    # Primero, aplicar drift_estandarizar, claro
-    drift_estandarizar(campos_monetarios)
-    # Luego, aplicar drift_rank_cero_fijo
-    drift_rank_cero_fijo(campos_monetarios) 
+  "estandarizar_y_rank" = {
+    campos_monetarios <- drift_estandarizar(campos_monetarios)
+    drift_rank_cero_fijo(campos_monetarios)
   }
 )
 
