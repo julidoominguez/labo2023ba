@@ -35,7 +35,7 @@ require("lightgbm")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "ZZ661018"
+PARAM$experimento <- "ZZ661019"
 PARAM$exp_input <- "HT651018"
 
 # Atencion, que cada modelos se procesa con 5 semillas, ajuste a SUS necesidades
@@ -43,7 +43,7 @@ PARAM$exp_input <- "HT651018"
 PARAM$modelos_rank <- c(1)
 
 # reemplazar por las propias semillas
-PARAM$semillas <- c(100019, 100043, 100049, 100057, 100069)
+PARAM$semillas <- c(100019, 100043, 100049, 100057, 100069, 500029,	400029,	300007,	100129,	200003)
 
 PARAM$kaggle$envios_desde <- 9500L
 PARAM$kaggle$envios_hasta <- 11500L
