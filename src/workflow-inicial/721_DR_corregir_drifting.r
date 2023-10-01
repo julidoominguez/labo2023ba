@@ -11,9 +11,9 @@ require("yaml")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "DR621015"
+PARAM$experimento <- "DR621016"
 
-PARAM$exp_input <- "CA611015"
+PARAM$exp_input <- "CA611016"
 
 PARAM$variables_intrames <- TRUE # atencion esto esta en TRUE
 
@@ -291,7 +291,7 @@ switch(PARAM$metodo,
   "estandarizar"   = drift_estandarizar(campos_monetarios),
   "estandarizar_y_rank" = {
     campos_monetarios <- drift_deflacion(campos_monetarios)
-    drift_rank_cero_fijo(campos_monetarios)
+    campos_monetarios <- drift_rank_cero_fijo(campos_monetarios)
   }
 )
 
