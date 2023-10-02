@@ -19,6 +19,7 @@ PARAM$variables_intrames <- TRUE # atencion esto esta en TRUE
 
 # valores posibles
 #  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar"
+# En este caso dice deflación pero lo que haremos es dolarizar las variables
 PARAM$metodo <- "deflacion"
 
 PARAM$home <- "~/buckets/b1/"
@@ -167,8 +168,7 @@ AgregarVariables_IntraMes <- function(dataset) {
   }
 }
 #------------------------------------------------------------------------------
-# deflaciona por IPC
-# momento 1.0  31-dic-2020 a las 23:59
+# Ajusta por USD
 
 drift_deflacion <- function(campos_monetarios) {
   vfoto_mes <- c(
