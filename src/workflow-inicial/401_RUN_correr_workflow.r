@@ -7,7 +7,7 @@ options(error = function() {
 })
 
 
-# corrida de cada paso del workflow
+# corrida de cada paso del workfloww
 
 # primeros pasos, relativamente rapidos
 source("~/labo2023ba/src/workflow-inicial/411_CA_reparar_dataset.r")
