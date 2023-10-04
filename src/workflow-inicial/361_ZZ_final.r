@@ -33,7 +33,7 @@ require("yaml")
 require("lightgbm")
 
 
-# Parametros del script
+# Parametros del scripts
 PARAM <- list()
 PARAM$experimento <- "ZZ66113FIN2"
 PARAM$exp_input <- "HT65113FIN2"
