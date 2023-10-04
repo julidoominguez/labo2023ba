@@ -24,7 +24,7 @@
 
 
 # limpio la memoria
-rm(list = ls(all.names = TRUE)) # remove all objects
+rm(list = ls(all.names = TRUE)) # remove all objecdts
 gc(full = TRUE) # garbage collection
 
 require("data.table")
