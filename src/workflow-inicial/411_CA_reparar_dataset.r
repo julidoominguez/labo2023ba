@@ -8,7 +8,7 @@ gc(full = TRUE) # garbage collection
 require("data.table")
 require("yaml")
 
-# Parametros del script
+# Parametros del scriptt
 PARAM <- list()
 PARAM$experimento <- "CA61113FIN2"
 PARAM$dataset <- "./datasets/competencia_2023.csv.gz"
