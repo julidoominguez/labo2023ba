@@ -38,7 +38,7 @@ PARAM <- list()
 PARAM$experimento <- "ZZ66113FIN2"
 PARAM$exp_input <- "HT65113FIN2"
 
-# Atencion, que cada modelos se procesa con 5 semillas, ajuste a SUS necesidades
+# Atencion, que cada modelos se procesa con 5 semillas, ajuste a SUS necesidadess
 # Que modelos quiero, segun su posicion en el ranking e la Bayesian Optimizacion, ordenado por ganancia descendente
 PARAM$modelos_rank <- c(1)
 
