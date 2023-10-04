@@ -42,7 +42,7 @@ PARAM$exp_input <- "HT65113FIN2"
 # Que modelos quiero, segun su posicion en el ranking e la Bayesian Optimizacion, ordenado por ganancia descendente
 PARAM$modelos_rank <- c(1)
 
-# reemplazar por las propias semillasss
+# reemplazar por las propias semillassss
 PARAM$semillas <- c(100019, 100043, 100049, 100057, 100069, 152417, 310019, 450203, 612517, 798679)
 
 PARAM$kaggle$envios_desde <- 9500L
