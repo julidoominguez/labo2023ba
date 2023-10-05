@@ -1,6 +1,9 @@
 install.packages("dplyr")
 install.packages("purrr")
 
+library(dplyr)
+library(purrr)
+
 # Definir la variable 'envios'
 envios <- 11100
 
