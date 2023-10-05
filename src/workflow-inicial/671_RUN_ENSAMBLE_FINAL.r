@@ -5,13 +5,13 @@ library(dplyr)
 library(purrr)
 
 # Definir la variable 'envios'
-envios <- 11100
+envios <- 9300
 
-# Lista para almacenar los dataframes
+# Lista para almacenar los dataframess
 lista_dataframes <- list()
 
 # Nombres de las carpetas
-nombres_carpetas <- c("ZZ66113FIN2", "ZZ66112", "ZZ6610", "ZZEXTRA")
+nombres_carpetas <- c("ZZ6610", "ZZ66112", "ZZ66102", "ZZ66104", "ZZ66106", "ZZ66107", "ZZ66108", "ZZ66109", "ZZ66113", "ZZ66114", "ZZ661010", "ZZ661011","ZZ661017", "ZZ661018")
 
 # Iterar sobre las carpetas y archivos
 for (nombre_carpeta in nombres_carpetas) {
@@ -44,11 +44,11 @@ df_final <- lista_dataframes %>%
 df_export <- df_final %>% select(numero_de_cliente, predicted)
 
 # Crear una nueva carpeta si no existe
-nueva_carpeta <- file.path("~/buckets/b1/exp", "ensamble_experimento_final")
+nueva_carpeta <- file.path("~/buckets/b1/exp", "ensamble_experimento_final23")
 dir.create(nueva_carpeta, showWarnings = FALSE)
 
 # Crear el nombre del archivo con la cantidad de envíos
-nombre_archivo <- paste0("resultados_ensamble_", envios, "_envios.csv")
+nombre_archivo <- paste0("resultados_totales_", envios, "_envios.csv")
 archivo_salida <- file.path(nueva_carpeta, nombre_archivo)
 
 # Escribir el dataframe en un archivo CSV en la nueva carpeta
