@@ -5,7 +5,7 @@ library(dplyr)
 library(purrr)
 
 # Definir la variable 'envios'
-envios <- 9300
+envios <- 9350
 
 # Lista para almacenar los dataframess
 lista_dataframes <- list()
@@ -44,11 +44,11 @@ df_final <- lista_dataframes %>%
 df_export <- df_final %>% select(numero_de_cliente, predicted)
 
 # Crear una nueva carpeta si no existe
-nueva_carpeta <- file.path("~/buckets/b1/exp", "ensamble_experimento_final23")
+nueva_carpeta <- file.path("~/buckets/b1/exp", "ensamble_experimento_final26")
 dir.create(nueva_carpeta, showWarnings = FALSE)
 
 # Crear el nombre del archivo con la cantidad de envíos
-nombre_archivo <- paste0("resultados_totales_", envios, "_envios.csv")
+nombre_archivo <- paste0("entrega_final_", envios, "_envios.csv")
 archivo_salida <- file.path(nueva_carpeta, nombre_archivo)
 
 # Escribir el dataframe en un archivo CSV en la nueva carpeta
@@ -56,3 +56,9 @@ write.csv(df_export, archivo_salida, row.names = FALSE)
 
 # Imprimir la ubicación del archivo de salida
 cat("Resultados exportados a:", archivo_salida, "\n")
+
+# Filtrar el dataframe para obtener la fila asociada al número de envíos
+fila_envios <- df_final[df_final$indice == envios, ]
+
+# Imprimir la fila completa
+print(fila_envios)
